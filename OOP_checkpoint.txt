@@ -1,0 +1,54 @@
+class Product {
+  //constructor => initalization attribut
+  constructor(id, name, price) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+  }
+}
+
+class ShoppingCartItem {
+  constructor(product, quantity) {
+    this.product = product;
+    this.quantity = quantity;
+  }
+
+  totalPrice() {
+    return this.product.price * this.quantity;
+  }
+}
+
+class ShoppingCart {
+  constructor() {
+    this.items = [];
+  }
+  getTotalItems() {
+    return this.items.length;
+  }
+  additem(item) {
+    this.items.push(item);
+  }
+  removeitem(index) {
+    this.items.splice(index, 1);
+  }
+  displayCart() {
+    this.items.forEach((item) => {
+      console.log(`${item.product.name} - Quantity: ${item.quantity}`);
+    });
+  }
+}
+
+const product1 = new Product(1, "product1", 5);
+const product2 = new Product(2, "product2", 9);
+
+const item1 = new ShoppingCartItem(product1, 10);
+const item2 = new ShoppingCartItem(product2, 8);
+
+const cart = new ShoppingCart();
+
+cart.additem(item1);
+cart.additem(item2);
+cart.displayCart();
+console.log("======================");
+cart.removeitem(1);
+cart.displayCart();
