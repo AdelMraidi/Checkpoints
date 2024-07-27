@@ -1,0 +1,10 @@
+.title1 {
+  color: #524545;
+  font-weight: 700;
+}
+
+p {
+  font-size: 12px;
+  background-color: #f4f4f4;
+  text-transform: capitalize;
+}
